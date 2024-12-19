@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nul</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<style>
+.navbar .brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar .brand:hover {
+    color: #C4FFDD;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Awal elemen sebelum animasi */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0); /* Posisi akhir elemen setelah animasi */
+}
+
+/* Hero Section */
+.hero-content, .hero-image img {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.hero-content.show, .hero-image img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="brand">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <p class="intro-text">Hi, my name is</p>
+            <h1 class="hero-title">Nul</h1>
+            <h2 class="hero-subtitle">Teknologi Informasi - Universitas Brawijaya</h2>
+            <p class="hero-description">
+                Saya adalah mahasiswa dari Jurusan Teknologi Informasi Universitas Brawijaya yang memiliki minat dan keahlian di bidang pengembangan web dan desain digital
+            </p>
+            <p class="open-work">Open for Work & Collaboration.</p>
+            <a href="#tech" class="btn">Check Out My Skills!</a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:nolanhakimm10@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/nolanhakim" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="img/aku2.jpg" alt="Profile Image" class="fade-in">
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="tech-stack fade-in">
+        <div class="section-title">
+            <div class="line"></div>
+            <h2>Tech Stack</h2>
+            <div class="line"></div>
+        </div>
+        <div class="stack-grid">
+            <!-- Tech Items -->
+            <div class="stack-item">
+                <img src="img/html.png" alt="HTML" class="html-img">
+                <p>HTML</p>
+            </div>
+            <div class="stack-item">
+                <img src="img/css.png" alt="CSS" class="css-img">
+                <p>CSS</p>
+            </div>
+            <div class="stack-item">
+                <img src="https://cdn.worldvectorlogo.com/logos/laravel-2.svg" alt="Laravel" class="laravel-img">
+                <p>Laravel</p>
+            </div>
+            <div class="stack-item">
+                <img src="img/tailwind.png" alt="Tailwind" class="tailwind-img">
+                <p>Tailwind CSS</p>
+            </div>
+            <div class="stack-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="PHP" class="php-img">
+                <p>PHP</p>
+            </div>
+            <div class="stack-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968313.png" alt="MySQL" class="mysql-img">
+                <p>MySQL</p>
+            </div>
+            <div class="stack-item">
+                <img src="img/figma.png" alt="Figma" class="figma-img">
+                <p>Figma</p>
+            </div>
+            <div class="stack-item">
+                <img src="img/canva.png" alt="Canva" class="canva-img">
+                <p>Canva</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Projects Section -->
+<section id="projects" class="projects fade-in">
+    <div class="section-title">
+        <div class="line"></div>
+        <h2>Projects</h2>
+        <div class="line"></div>
+    </div>
+    <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-item">
+            <img src="img/project2/1.png" alt="Project 1" class="project-img">
+            <div class="project-info">
+                <h3>Bunga Mekar</h3>
+                <p>Tampilan Bunga Mekar Menggunakan Html, CSS, Dan Js</p>
+                <a href="https://nolanhakim.github.io/gift/" class="btn">View Project</a>
+            </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-item">
+            <img src="img/project1/2.png" alt="Project 2" class="project-img">
+            <div class="project-info">
+                <h3>Web Joki Dan Top Up</h3>
+                <p>Web Simple menggunakan Laravel dan TailwindCSS untuk layanan joki dan top-up<p>
+                <a href="project6.html" class="btn">View Project</a>
+            </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-item">
+            <img src="img/project3/1.png" alt="Project 3" class="project-img">
+            <div class="project-info">
+                <h3>Ucapan Ulang Tahun</h3>
+                <p>Kartu Ucapan ulang tahun menggunakan html, css</p>
+                <a href="https://nolanhakim.github.io/hbd-mbadio/" class="btn">View Project</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="img/project4/2.png" alt="Project 3" class="project-img">
+            <div class="project-info">
+                <h3>Redesign</h3>
+                <p>Redesign Aplikasi Ilufa168</p>
+                <a href="project4.html" class="btn">View Project</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="img/project6/HOME PAGE2.png" alt="Project 3" class="project-img">
+            <div class="project-info">
+                <h3>Design</h3>
+                <p>Design Aplikasi Top Up</p>
+                <a href="project1.html" class="btn">View Project</a>
+            </div>
+        </div>
+        <div class="project-item">
+            <img src="img/project5/1.png" alt="Project 3" class="project-img">
+            <div class="project-info">
+                <h3>Redesign</h3>
+                <p>Redesign Web BCA</p>
+                <a href="project5.html" class="btn">View Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+   <!-- contact Section -->
+   <section id="contact" class="projects fade-in">
+    <div class="section-title">
+        <div class="line"></div>
+        <h2>Contact</h2>
+        <div class="line"></div>
+    </div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:nolanhakimm10@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/nolanhakim" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Nul. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Menggunakan Intersection Observer API untuk animasi scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null, // Menggunakan viewport sebagai root
+                rootMargin: '0px', // Margin dari viewport
+                threshold: 0.1 // Elemen akan dianggap terlihat jika 10% bagian terlihat
+            };
+        
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show'); // Tambahkan kelas 'show'
+                        observer.unobserve(entry.target); // Berhenti memantau elemen setelah terlihat
+                    }
+                });
+            }, observerOptions);
+        
+            // Pilih semua elemen dengan kelas fade-in
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+        </script>
+        
+</body>
+</html>

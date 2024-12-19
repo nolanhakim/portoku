@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nul</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+
+.navbar .brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar .brand:hover {
+    color: #C4FFDD;
+}
+        /* Styles for Modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Posisikan tombol X di pojok kanan atas */
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Navigation buttons */
+        .next-btn,
+        .prev-btn {
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10;
+            transform: translateY(-50%);
+        }
+
+        /* Tombol Next (geser kanan) */
+        .next-btn {
+            right: 20px; /* Tombol geser kanan berada sedikit lebih jauh dari gambar */
+        }
+
+        /* Tombol Prev (geser kiri) */
+        .prev-btn {
+            left: 20px; /* Tombol geser kiri berada di sisi kiri */
+        }
+
+        /* Documentation Section */
+        .documentation {
+            background-color: #113A5D; /* Medium Blue */
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #F9F9F9; /* Light Text */
+        }
+
+        .documentation .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .documentation .line {
+            width: 50px;
+            height: 2px;
+            background-color: #C4FFDD; /* Mint Green */
+        }
+
+        .documentation h2 {
+            font-size: 2.5rem;
+            color: #ffffff; /* Mint Green */
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+            gap: 2rem; /* Jarak antar item */
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .doc-item {
+            background-color: #062743; /* Dark Blue */
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .doc-img {
+            width: 100%; /* Menjamin lebar gambar 100% */
+            height: 200px; /* Atur tinggi gambar agar konsisten */
+            object-fit: cover; /* Mengatur gambar agar tetap terpotong dengan rasio yang tepat */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .doc-img:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="brand">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Back</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Documentation Section -->
+    <section class="documentation">
+        <div class="container">
+            <div class="section-title">
+                <div class="line"></div>
+                <h2>Web Joki Dan Top Up</h2>
+                <div class="line"></div>
+            </div>
+            <div class="doc-grid">
+                <div class="doc-item">
+                    <img src="img/project1/2.png" alt="Documentation Screenshot 1" class="doc-img" onclick="openModal(0)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/1.png" alt="Documentation Screenshot 2" class="doc-img" onclick="openModal(1)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/3.png" alt="Documentation Screenshot 3" class="doc-img" onclick="openModal(2)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/4.png" alt="Documentation Screenshot 4" class="doc-img" onclick="openModal(3)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/5.png" alt="Documentation Screenshot 5" class="doc-img" onclick="openModal(4)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/6.png" alt="Documentation Screenshot 6" class="doc-img" onclick="openModal(5)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/7.png" alt="Documentation Screenshot 7" class="doc-img" onclick="openModal(6)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/9.png" alt="Documentation Screenshot 8" class="doc-img" onclick="openModal(7)">
+                </div>
+                <div class="doc-item">
+                    <img src="img/project1/8.png" alt="Documentation Screenshot 9" class="doc-img" onclick="openModal(8)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <span class="prev-btn" onclick="prevImage()">&#10094;</span>
+        <span class="next-btn" onclick="nextImage()">&#10095;</span>
+        <div class="modal-content">
+            <img id="modal-img" class="modal-img" src="" alt="Large view of the image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Nul. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        var currentIndex = 0;
+        var images = [
+            "img/project1/2.png",
+            "img/project1/1.png",
+            "img/project1/3.png",
+            "img/project1/4.png",
+            "img/project1/5.png",
+            "img/project1/6.png",
+            "img/project1/7.png",
+            "img/project1/9.png",
+            "img/project1/8.png"
+        ];
+
+        function openModal(index) {
+            currentIndex = index;
+            document.getElementById("modal-img").src = images[currentIndex];
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+            document.getElementById("modal-img").src = images[currentIndex];
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to the last image
+            document.getElementById("modal-img").src = images[currentIndex];
+        }
+    </script>
+
+</body>
+</html>

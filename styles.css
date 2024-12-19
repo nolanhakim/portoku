@@ -1,0 +1,347 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #062743; /* Dark Blue */
+    color: #F9F9F9; /* Light Gray Text */
+    line-height: 1.6;
+}
+
+
+
+/* Navbar */
+
+.navbar {
+    background-color: #113A5D; /* Medium Blue */
+    padding: 1rem 2rem;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: #F9F9F9; /* Light Text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #C4FFDD; /* Mint Green */
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: flex-start; /* Konten menjorok ke kiri */
+    align-items: center;
+    padding: 4rem 2rem;
+    background-color: #062743; /* Dark Blue */
+    gap: 2rem; /* Spasi antara teks dan gambar */
+}
+
+.hero-content {
+    flex: 1; /* Biarkan konten mengambil ruang proporsional */
+    max-width: 600px;
+    text-align: left; /* Konten rata kiri */
+    margin-left: 5%; /* Geser sedikit ke kanan untuk estetika */
+}
+
+.hero-content .intro-text {
+    color: #C4FFDD; /* Mint Green */
+    font-size: 1rem;
+}
+
+.hero-content .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #F9F9F9; /* Light Text */
+}
+
+.hero-content .hero-subtitle {
+    font-size: 1.5rem;
+    color: #C4FFDD; /* Mint Green */
+    margin: 1rem 0;
+}
+
+.hero-content .hero-description {
+    margin: 1rem 0;
+    color: #F9F9F9; /* Light Text */
+    font-size: 1.1rem;
+}
+
+.hero-content .open-work {
+    font-size: 1.2rem;
+    color: #C4FFDD; /* Mint Green */
+    font-weight: bold;
+}
+
+.hero-content .btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #C4FFDD; /* Mint Green */
+    color: #062743; /* Dark Blue */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: #113A5D; /* Medium Blue */
+    color: #F9F9F9; /* Light Text */
+}
+
+.social-links {
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    color: #F9F9F9; /* Light Text */
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #C4FFDD; /* Mint Green */
+}
+
+.hero-image {
+    flex: 1; /* Ruang untuk gambar */
+    max-width: 400px;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Tech Stack Section */
+.tech-stack {
+    background-color: #113A5D; /* Medium Blue */
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #F9F9F9; /* Light Text */
+}
+
+.tech-stack .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tech-stack .line {
+    width: 50px;
+    height: 2px;
+    background-color: #C4FFDD; /* Mint Green */
+}
+
+.tech-stack h2 {
+    font-size: 2.5rem;
+    color: #ffffff; /* Mint Green */
+    font-weight: bold;
+    margin: 0;
+}
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+    gap: 2rem; /* Jarak antar item */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.stack-item {
+    background-color: #062743; /* Dark Blue */
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Ukuran untuk gambar HTML */
+.html-img {
+    width: 100px; /* Lebar gambar */
+    height: 100px; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar CSS */
+.css-img {
+    width: 75px; /* Lebar gambar */
+    height: 100px; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar Laravel */
+.laravel-img {
+    width: 90px; /* Lebar gambar */
+    height: auto; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar Tailwind */
+.tailwind-img {
+    width: 100px; /* Lebar gambar */
+    height: 90px; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar PHP */
+.php-img {
+    width: 100px; /* Lebar gambar */
+    height: 100px; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar MySQL */
+.mysql-img {
+    width: 80px; /* Lebar gambar */
+    height: 100px; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar Figma */
+.figma-img {
+    width: 70px; /* Lebar gambar */
+    height: 100px; /* Menjaga rasio gambar */
+}
+
+/* Ukuran untuk gambar Canva */
+.canva-img {
+    width: 180px; /* Lebar gambar */
+    height: 1oopx; /* Menjaga rasio gambar */
+}
+
+
+
+
+.stack-item p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff; /* Mint Green */
+}
+
+.stack-item:hover {
+    transform: translateY(-10px); /* Efek hover */
+    border: 2px solid #C4FFDD; /* Mint Green border */
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.stack-item img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsiveness for tablets (max width 768px) */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-left: 0; /* Reset margin */
+    }
+
+    .hero-content .hero-title {
+        font-size: 2.5rem; /* Smaller title size */
+    }
+
+    .hero-image {
+        max-width: 300px; /* Smaller image */
+    }
+
+    .stack-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+/* Responsiveness for mobile (max width 480px) */
+@media (max-width: 480px) {
+    .navbar .container {
+        padding: 1rem;
+    }
+
+    .hero {
+        gap: 1rem; /* Less gap */
+        padding: 2rem 1rem;
+    }
+
+    .hero-content .hero-title {
+        font-size: 2rem; /* Smaller font for title */
+    }
+
+    .hero-content .hero-subtitle {
+        font-size: 1.2rem; /* Smaller subtitle */
+    }
+
+    .hero-content .btn {
+        padding: 0.6rem 1.2rem; /* Smaller button */
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        max-width: 250px;
+    }
+
+    .tech-stack .stack-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+
+    .stack-item {
+        padding: 0.5rem; /* Less padding */
+    }
+
+    .stack-item img {
+        width: 80px; /* Smaller images */
+        height: auto;
+    }
+}
+
+
+
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #062743; /* Dark Blue */
+    color: #F9F9F9; /* Light Text */
+    font-size: 0.9rem;
+}
