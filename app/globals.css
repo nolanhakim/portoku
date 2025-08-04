@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -14,13 +17,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+      --background: url('/dark.png');
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+    background: var(--background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
