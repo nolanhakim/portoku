@@ -41,7 +41,7 @@ export default function AboutSection() {
   }, [charIndex, isDeleting, fullTitleIndex, titles]);
 
   return (
-    <section className="bg-black text-white p-6 rounded-none sm:rounded-2xl w-full sm:max-w-md sm:mx-auto min-h-[600px] shadow-lg">
+    <section className="bg-black text-white p-6 rounded-2xl sm:rounded-2xl w-full sm:max-w-md sm:mx-auto min-h-[600px] shadow-lg">
       {/* Profile Image */}
       <div className="flex justify-center mb-4">
         <Image
