@@ -243,7 +243,7 @@ export default function PortofolioSection() {
             <div className="bg-[#111] text-white p-6 rounded-xl max-w-md w-full relative shadow-lg">
               <button
                 onClick={closeModal}
-                className="absolute top-2 right-3 text-white text-2xl hover:text-red-500"
+                className="absolute top-2 right-3 text-white text-4xl hover:text-red-500"
               >
                 &times;
               </button>
