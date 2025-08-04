@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function ResumeSection() {
   const education = [
     {
-      date: 'Agustus 2023 - Present',
+      date: 'Agustus 2023 - Now',
       title: 'Brawijaya University',
       subtitle: 'Information Technology',
     },
