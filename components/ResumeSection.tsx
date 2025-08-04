@@ -45,7 +45,7 @@ export default function ResumeSection() {
   const visibleExperience = showAll ? experience : experience.slice(0, 2);
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-20" id="resume">
+    <section className="bg-black text-white rounded-2xl py-16 px-6 md:px-20" id="resume">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
