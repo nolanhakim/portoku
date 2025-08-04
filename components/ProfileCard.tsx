@@ -1,9 +1,11 @@
 "use client";
 
 import Image from 'next/image';
-
 import { useEffect, useState } from 'react';
-import { FaDiscord, FaInstagram, FaLinkedin, FaGithub, FaPhone, FaEnvelope, FaMapMarkerAlt, FaBirthdayCake, FaDownload } from 'react-icons/fa';
+import {
+  FaDiscord, FaInstagram, FaLinkedin, FaGithub,
+  FaPhone, FaEnvelope, FaMapMarkerAlt, FaBirthdayCake, FaDownload
+} from 'react-icons/fa';
 
 export default function AboutSection() {
   const titles = ['Front End Developer', 'UI/UX Designer', 'Graphic Designer'];
@@ -14,19 +16,21 @@ export default function AboutSection() {
 
   useEffect(() => {
     const fullTitle = titles[fullTitleIndex];
-    let typingSpeed = isDeleting ? 50 : 100;
+    const typingSpeed = isDeleting ? 50 : 100;
 
     const timer = setTimeout(() => {
       if (isDeleting) {
-        setCurrentTitle(fullTitle.substring(0, charIndex - 1));
-        setCharIndex(charIndex - 1);
+        const updatedTitle = fullTitle.substring(0, charIndex - 1);
+        setCurrentTitle(updatedTitle);
+        setCharIndex((prev) => prev - 1);
       } else {
-        setCurrentTitle(fullTitle.substring(0, charIndex + 1));
-        setCharIndex(charIndex + 1);
+        const updatedTitle = fullTitle.substring(0, charIndex + 1);
+        setCurrentTitle(updatedTitle);
+        setCharIndex((prev) => prev + 1);
       }
 
       if (!isDeleting && charIndex === fullTitle.length) {
-        setTimeout(() => setIsDeleting(true), 1000); // jeda sebelum hapus
+        setTimeout(() => setIsDeleting(true), 1000);
       } else if (isDeleting && charIndex === 0) {
         setIsDeleting(false);
         setFullTitleIndex((prev) => (prev + 1) % titles.length);
@@ -34,20 +38,20 @@ export default function AboutSection() {
     }, typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, fullTitleIndex]);
+  }, [charIndex, isDeleting, fullTitleIndex, titles]);
 
   return (
     <section className="bg-black text-white p-6 rounded-none sm:rounded-2xl w-full sm:max-w-md sm:mx-auto min-h-[600px] shadow-lg">
-        {/* Profile Image */}
-<div className="flex justify-center mb-4">
-<Image
-  src="/profil.jpg"
-  alt="Profile"
-  width={96} // 24 * 4 (karena 1rem = 16px)
-  height={96}
-  className="rounded-full border-4 border-gray-700 object-cover"
-/>
-</div>
+      {/* Profile Image */}
+      <div className="flex justify-center mb-4">
+        <Image
+          src="/profil.jpg"
+          alt="Profile"
+          width={96}
+          height={96}
+          className="rounded-full border-4 border-gray-700 object-cover"
+        />
+      </div>
 
       <h1 className="text-3xl font-bold text-center">Catraliya Nolan Hakim</h1>
 

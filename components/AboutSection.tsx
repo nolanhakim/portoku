@@ -30,19 +30,19 @@ export default function AboutSection() {
         About
       </h2>
 
-      <p className="text-gray-300 leading-relaxed">
-        Hello, I'm Nul, a five-semester Information Technology student at Universitas Brawijaya.
-        With hands-on experience in frontend development, I specialize in designing and 
-        building modern, responsive, and user-friendly web and mobile interfaces 
-        using technologies like Laravel, and Next.js.
-        <br /><br />
-        Beyond coding, I’m also passionate about UI/UX design
-        and graphic design, ensuring that every product I work on not only 
-        functions well but also delivers a smooth and engaging user experience.
-        <br /><br />
-        Feel free to explore my portfolio to see some of the projects I’ve
-        worked on and how I can bring your ideas to life!
-      </p>
+<p className="text-gray-300 leading-relaxed">
+  Hello, I&apos;m Nul, a five-semester Information Technology student at Universitas Brawijaya.
+  With hands-on experience in frontend development, I specialize in designing and 
+  building modern, responsive, and user-friendly web and mobile interfaces 
+  using technologies like Laravel, and Next.js.
+  <br /><br />
+  Beyond coding, I&apos;m also passionate about UI/UX design
+  and graphic design, ensuring that every product I work on not only 
+  functions well but also delivers a smooth and engaging user experience.
+  <br /><br />
+  Feel free to explore my portfolio to see some of the projects I&apos;ve
+  worked on and how I can bring your ideas to life!
+</p>
 
       {/* Skills Section */}
       <div className="mt-10">
