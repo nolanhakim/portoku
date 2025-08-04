@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 
 import { useEffect, useState } from 'react';
 import { FaDiscord, FaInstagram, FaLinkedin, FaGithub, FaPhone, FaEnvelope, FaMapMarkerAlt, FaBirthdayCake, FaDownload } from 'react-icons/fa';
@@ -39,11 +40,13 @@ export default function AboutSection() {
     <section className="bg-black text-white p-6 rounded-none sm:rounded-2xl w-full sm:max-w-md sm:mx-auto min-h-[600px] shadow-lg">
         {/* Profile Image */}
 <div className="flex justify-center mb-4">
-  <img
-    src="/profil.jpg"
-    alt="Profile"
-    className="w-24 h-24 rounded-full border-4 border-gray-700 object-cover"
-  />
+<Image
+  src="/profil.jpg"
+  alt="Profile"
+  width={96} // 24 * 4 (karena 1rem = 16px)
+  height={96}
+  className="rounded-full border-4 border-gray-700 object-cover"
+/>
 </div>
 
       <h1 className="text-3xl font-bold text-center">Catraliya Nolan Hakim</h1>

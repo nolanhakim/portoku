@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import {
   FaHtml5,
   FaCss3Alt,
@@ -94,14 +95,81 @@ export default function AboutSection() {
           )}
 
           {activeTab === 'tools' && (
-            <>
-              <Skill icon={<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" className="w-10 h-10" />} name="Figma" level="Intermediate" />
-              <Skill icon={<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="w-10 h-10" />} name="VS Code" level="Advanced" />
-              <Skill icon={<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" className="w-10 h-10" />} name="Postman" level="Intermediate" />
-              <Skill icon={<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg" alt="Arduino IDE" className="w-10 h-10" />} name="Arduino IDE" level="Intermediate" />
-              <Skill icon={<img src="canva.png" alt="Canva" className="w-10 h-10" />} name="Canva" level="Advanced" />
-              <Skill icon={<img src="capcut.jpg" alt="CapCut" className="w-10 h-10" />} name="CapCut" level="Advanced" />
-            </>
+<>
+  <Skill
+    icon={
+      <Image
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+        alt="Figma"
+        width={40}
+        height={40}
+      />
+    }
+    name="Figma"
+    level="Intermediate"
+  />
+  <Skill
+    icon={
+      <Image
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+        alt="VS Code"
+        width={40}
+        height={40}
+      />
+    }
+    name="VS Code"
+    level="Advanced"
+  />
+  <Skill
+    icon={
+      <Image
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+        alt="Postman"
+        width={40}
+        height={40}
+      />
+    }
+    name="Postman"
+    level="Intermediate"
+  />
+  <Skill
+    icon={
+      <Image
+        src="https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg"
+        alt="Arduino IDE"
+        width={40}
+        height={40}
+      />
+    }
+    name="Arduino IDE"
+    level="Intermediate"
+  />
+  <Skill
+    icon={
+      <Image
+        src="/canva.png"
+        alt="Canva"
+        width={40}
+        height={40}
+      />
+    }
+    name="Canva"
+    level="Advanced"
+  />
+  <Skill
+    icon={
+      <Image
+        src="/capcut.jpg"
+        alt="CapCut"
+        width={40}
+        height={40}
+      />
+    }
+    name="CapCut"
+    level="Advanced"
+  />
+</>
+
           )}
         </motion.div>
       </div>

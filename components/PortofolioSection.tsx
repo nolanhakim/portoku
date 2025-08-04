@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -82,11 +83,13 @@ export default function PortofolioSection() {
                 className="group bg-[#111] rounded-xl overflow-hidden border border-gray-800 shadow-md hover:shadow-xl hover:border-blue-600 transition duration-300"
               >
                 <div className="overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+<Image
+  src={item.image}
+  alt={item.title}
+  width={400} // sesuaikan dengan kebutuhanmu
+  height={192} // contoh: 48 * 4 (karena Tailwind 1 unit = 0.25rem = 4px)
+  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+/>
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg font-bold group-hover:text-blue-500 transition duration-300">
