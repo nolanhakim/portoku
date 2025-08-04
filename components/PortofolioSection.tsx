@@ -4,103 +4,134 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const portfolioItems = [
-  { title: 'Website Top Up', 
-    category: 'Web', 
+interface PortfolioItem {
+  title: string;
+  category: string;
+  image: string;
+  description?: string;
+  tech?: string;
+  client?: string;
+  link?: string;
+}
+
+const portfolioItems: PortfolioItem[] = [
+  {
+    title: 'Website Top Up',
+    category: 'Web',
     image: '/portofolio/topup.png',
     description:
-    'Top Up Website is a digital platform for purchasing game items and diamonds for popular games like Mobile Legends and Genshin Impact.',
+      'Top Up Website is a digital platform for purchasing game items and diamonds for popular games like Mobile Legends and Genshin Impact.',
     tech: 'Laravel, Tailwind CSS',
     client: '-',
-    link: 'https://github.com/nolanhakim/topup'
-   },
-
-  { title: 'Website Vokasi', 
-    category: 'Web', 
+    link: 'https://github.com/nolanhakim/topup',
+  },
+  {
+    title: 'Website Vokasi',
+    category: 'Web',
     image: '/portofolio/vokasi.png',
     description:
-    'Faculty of Vocational Studies Website is an official platform that provides information about academic programs, campus activities, and student services',
+      'Faculty of Vocational Studies Website is an official platform that provides information about academic programs, campus activities, and student services',
     tech: 'Laravel, Tailwind CSS',
     client: '-',
-    link: 'https://github.com/nolanhakim/landingpage_vokasiub'
-   },
-  { title: 'Kedai Cahaya Gemilang', 
-    category: 'Web', 
+    link: 'https://github.com/nolanhakim/landingpage_vokasiub',
+  },
+  {
+    title: 'Kedai Cahaya Gemilang',
+    category: 'Web',
     image: '/portofolio/cg.png',
     description:
-    'Digital platform that showcases menu. The website makes it easy for customers to explore available food and drink options',
+      'Digital platform that showcases menu. The website makes it easy for customers to explore available food and drink options',
     tech: 'Html, CSS',
     client: 'kedai cahaya gemilang',
-    link: 'https://kedaicahayagemilang.vercel.app/'
-   },
-  { title: 'JUMEAUSCENT', 
-    category: 'Web', 
+    link: 'https://kedaicahayagemilang.vercel.app/',
+  },
+  {
+    title: 'JUMEAUSCENT',
+    category: 'Web',
     image: '/portofolio/jumeau.png',
     description:
-    'JUMEAUSCENT is a Bali-based perfume brand website that offers a curated collection of handcrafted fragrances inspired by the island natural beauty and cultural richness',
+      'JUMEAUSCENT is a Bali-based perfume brand website that offers a curated collection of handcrafted fragrances inspired by the island natural beauty and cultural richness',
     tech: 'Html, CSS',
     client: 'jumeauscent',
-    link: 'https://www.jumeauscent.com/'
-   },
-  { title: 'Redesign BCA MOBILE', 
+    link: 'https://www.jumeauscent.com/',
+  },
+  {
+    title: 'Redesign BCA MOBILE',
     category: 'UI/UX Design',
-     image: '/portofolio/bca.png',
+    image: '/portofolio/bca.png',
     tech: 'Figma',
     client: '-',
-    },
-  { title: 'Redesign WEB BCA', 
-    category: 'UI/UX Design', 
+  },
+  {
+    title: 'Redesign WEB BCA',
+    category: 'UI/UX Design',
     image: '/portofolio/bca2.png',
     tech: 'Figma',
     client: '-',
   },
-  { title: 'Redesign Ilufa186', 
-    category: 'UI/UX Design', 
-    image: '/portofolio/ilufa.png',     
+  {
+    title: 'Redesign Ilufa186',
+    category: 'UI/UX Design',
+    image: '/portofolio/ilufa.png',
     tech: 'Figma',
-    client: '-', },
-  { title: 'Design Aplikasi Top Up', 
-    category: 'UI/UX Design', 
-    image: '/portofolio/boost.png',    
-    tech: 'Figma',
-    client: '-', },
-  { title: 'Poster Joki Wuthering', 
-    category: 'Design', 
-    image: '/portofolio/design2.png',    
-    tech: 'Canva',
-    client: 'Anonim', },
-  { title: 'Poster Joki MLBB', 
-    category: 'Design', 
-    image: '/portofolio/design3.png',    
-    tech: 'Canva',
-    client: 'Anonim', },
-  { title: 'Poster Top Up MLBB', 
-    category: 'Design', 
-    image: '/portofolio/design4.png',    
-    tech: 'Canva',
     client: '-',
-   },
-  { title: 'Poster Top Up GENSHIN', 
-    category: 'Design', 
-    image: '/portofolio/design5.png',    
+  },
+  {
+    title: 'Design Aplikasi Top Up',
+    category: 'UI/UX Design',
+    image: '/portofolio/boost.png',
     tech: 'Figma',
-    client: 'Anonim', },
-  { title: 'Banner Top Up', 
-    category: 'Design', 
-    image: '/portofolio/design6.png',     
-    tech: 'Canva',
-    client: 'Anonim', },
-  { title: 'Poster Grow A garden', 
-    category: 'Design', 
-    image: '/portofolio/design8.png',    
+    client: '-',
+  },
+  {
+    title: 'Poster Joki Wuthering',
+    category: 'Design',
+    image: '/portofolio/design2.png',
     tech: 'Canva',
     client: 'Anonim',
-   },
-  { title: 'Event Bravoc 2025', 
-    category: 'Design', 
-    image: '/portofolio/design9.png',     
+  },
+  {
+    title: 'Poster Joki MLBB',
+    category: 'Design',
+    image: '/portofolio/design3.png',
+    tech: 'Canva',
+    client: 'Anonim',
+  },
+  {
+    title: 'Poster Top Up MLBB',
+    category: 'Design',
+    image: '/portofolio/design4.png',
+    tech: 'Canva',
+    client: '-',
+  },
+  {
+    title: 'Poster Top Up GENSHIN',
+    category: 'Design',
+    image: '/portofolio/design5.png',
+    tech: 'Figma',
+    client: 'Anonim',
+  },
+  {
+    title: 'Banner Top Up',
+    category: 'Design',
+    image: '/portofolio/design6.png',
+    tech: 'Canva',
+    client: 'Anonim',
+  },
+  {
+    title: 'Poster Grow A garden',
+    category: 'Design',
+    image: '/portofolio/design8.png',
+    tech: 'Canva',
+    client: 'Anonim',
+  },
+  {
+    title: 'Event Bravoc 2025',
+    category: 'Design',
+    image: '/portofolio/design9.png',
     tech: 'Figma, Canva',
-    client: 'Bravoc', },
+    client: 'Bravoc',
+  },
 ];
 
 const categories = ['All', 'Web', 'UI/UX Design', 'Design'];
@@ -108,7 +139,7 @@ const categories = ['All', 'Web', 'UI/UX Design', 'Design'];
 export default function PortofolioSection() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showAll, setShowAll] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredItems =
@@ -118,7 +149,7 @@ export default function PortofolioSection() {
 
   const itemsToShow = showAll ? filteredItems : filteredItems.slice(0, 4);
 
-  const openModal = (item: any) => {
+  const openModal = (item: PortfolioItem) => {
     setSelectedItem(item);
     setIsModalOpen(true);
   };
@@ -207,7 +238,6 @@ export default function PortofolioSection() {
           </div>
         )}
 
-        {/* Modal */}
         {isModalOpen && selectedItem && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
             <div className="bg-[#111] text-white p-6 rounded-xl max-w-md w-full relative shadow-lg">
@@ -227,32 +257,43 @@ export default function PortofolioSection() {
               />
 
               <h3 className="text-2xl font-bold mb-1">{selectedItem.title}</h3>
-              <p className="text-blue-400 text-sm mb-3">{selectedItem.category}</p>
+              <p className="text-blue-400 text-sm mb-3">
+                {selectedItem.category}
+              </p>
 
               <div className="space-y-2 text-sm text-gray-300">
-                <p><strong>Project:</strong> {selectedItem.category}</p>
-                <p><strong>Client:</strong> {selectedItem.client || '-'}</p>
-                <p><strong>Tech Stack:</strong> {selectedItem.tech || '-'}</p>
+                <p>
+                  <strong>Project:</strong> {selectedItem.category}
+                </p>
+                <p>
+                  <strong>Client:</strong> {selectedItem.client || '-'}
+                </p>
+                <p>
+                  <strong>Tech Stack:</strong> {selectedItem.tech || '-'}
+                </p>
                 {selectedItem.description && (
-                  <p className="mt-2 text-gray-400">{selectedItem.description}</p>
+                  <p className="mt-2 text-gray-400">
+                    {selectedItem.description}
+                  </p>
                 )}
               </div>
 
-<div className="mt-4 text-right">
-  {selectedItem.link ? (
-    <a
-      href={selectedItem.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-semibold"
-    >
-      Visit site
-    </a>
-  ) : (
-    <span className="text-gray-400 italic">No site available</span>
-  )}
-</div>
-
+              <div className="mt-4 text-right">
+                {selectedItem.link ? (
+                  <a
+                    href={selectedItem.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-semibold"
+                  >
+                    Visit site
+                  </a>
+                ) : (
+                  <span className="text-gray-400 italic">
+                    No site available
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         )}
