@@ -61,6 +61,7 @@ const portfolioItems: PortfolioItem[] = [
     image: '/portofolio/bca.png',
     tech: 'Figma',
     client: '-',
+    link: 'https://www.figma.com/proto/YDgQIhwAa0ykReML8QJvwR/Prototype-UI-UX?node-id=1-77&starting-point-node-id=1%3A707&t=eSfZKoXpF0nJT2Cr-1',
   },
   {
     title: 'Redesign WEB BCA',
@@ -68,6 +69,7 @@ const portfolioItems: PortfolioItem[] = [
     image: '/portofolio/bca2.png',
     tech: 'Figma',
     client: '-',
+    link: 'https://www.figma.com/design/aK2NMSFbI9ogKJB5O23inr/REDESIGN?t=BT4MwTgTZpS5XpsD-1',
   },
   {
     title: 'Redesign Ilufa186',
@@ -75,6 +77,7 @@ const portfolioItems: PortfolioItem[] = [
     image: '/portofolio/ilufa.png',
     tech: 'Figma',
     client: '-',
+    link: 'https://www.figma.com/design/aK2NMSFbI9ogKJB5O23inr/REDESIGN?t=BT4MwTgTZpS5XpsD-1',
   },
   {
     title: 'Design Aplikasi Top Up',
@@ -82,6 +85,7 @@ const portfolioItems: PortfolioItem[] = [
     image: '/portofolio/boost.png',
     tech: 'Figma',
     client: '-',
+    link: 'https://www.figma.com/proto/Xna4fXGElM2ElVFtRVLf4y?node-id=0-1&t=BT4MwTgTZpS5XpsD-6',
   },
   {
     title: 'Poster Joki Wuthering',
@@ -128,9 +132,37 @@ const portfolioItems: PortfolioItem[] = [
   {
     title: 'Event Bravoc 2025',
     category: 'Design',
-    image: '/portofolio/design9.png',
+    image: '/portofolio/design9.2.png',
     tech: 'Figma, Canva',
     client: 'Bravoc',
+  },
+  {
+    title: 'Poster Karakter',
+    category: 'Design',
+    image: '/portofolio/design10.2.png',
+    tech: 'Canva',
+    client: '-',
+  },
+  {
+    title: 'Poster Olivia',
+    category: 'Design',
+    image: '/portofolio/design11.2.png',
+    tech: 'Canva',
+    client: '-',
+  },
+  {
+    title: 'Poster Olivia2',
+    category: 'Design',
+    image: '/portofolio/design12.png',
+    tech: 'Canva',
+    client: '-',
+  },
+    {
+    title: 'Poster Olivia3',
+    category: 'Design',
+    image: '/portofolio/design13.png',
+    tech: 'Canva',
+    client: '-',
   },
 ];
 
