@@ -56,6 +56,26 @@ const portfolioItems: PortfolioItem[] = [
     link: 'https://www.jumeauscent.com/',
   },
   {
+    title: 'Website Cek Cuaca',
+    category: 'Web',
+    image: '/portofolio/cuaca.png',
+    description:
+      'Weather Check is a simple and interactive website that displays real-time weather information for various cities around the world.',
+    tech: 'Next JS',
+    client: '-',
+    link: 'https://web-cuaca-ld9d.vercel.app/',
+  },
+  {
+    title: 'Website Portofolio',
+    category: 'Web',
+    image: '/portofolio/porto.png',
+    description:
+      'This website is a personal portfolio belonging to Catraliya Nolan Hakim, showcasing her profile, skills and work.',
+    tech: 'Next JS',
+    client: '-',
+    link: 'https://portoku-seven.vercel.app/',
+  },
+  {
     title: 'Redesign BCA MOBILE',
     category: 'UI/UX Design',
     image: '/portofolio/bca.png',
@@ -259,7 +279,7 @@ export default function PortofolioSection() {
           </AnimatePresence>
         </div>
 
-        {filteredItems.length > 6 && (
+        {filteredItems.length > 4 && (
           <div className="text-center mt-8">
             <button
               onClick={() => setShowAll((prev) => !prev)}
