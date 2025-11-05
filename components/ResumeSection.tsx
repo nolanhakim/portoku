@@ -19,10 +19,15 @@ export default function ResumeSection() {
   ];
 
   const experience = [
+        {
+      date: 'Oktober  - Now',
+      title: 'PSIK FAKULTAS VOKASI UB',
+      subtitle: 'Web Developer Intern',
+    },
     {
-      date: 'Agustus 2025 - Now',
+      date: 'Agustus  - September 2025',
       title: 'CV GLOBAL SOLUSINDO',
-      subtitle: 'Frontend Developer',
+      subtitle: ' UI UX Designer Intern',
     },
     {
       date: 'Februari 2025 - Now',

@@ -75,6 +75,16 @@ const portfolioItems: PortfolioItem[] = [
     client: '-',
     link: 'https://portoku-seven.vercel.app/',
   },
+    {
+    title: 'Website CREANOMIC 2025',
+    category: 'Web',
+    image: '/portofolio/crea.png',
+    description:
+      'Creaonomic 2025 is the official website for this annual event, combining creativity and the digital economy in one innovative platform. Designed as a hub for information and interaction, Creaonomic 2025 offers a modern, interactive digital experience geared toward the creative young generation.',
+    tech: 'Next JS',
+    client: '-',
+    link: 'https://creanomic.com/',
+  },
   {
     title: 'Redesign BCA MOBILE',
     category: 'UI/UX Design',
