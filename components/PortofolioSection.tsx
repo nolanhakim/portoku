@@ -41,9 +41,9 @@ const portfolioItems: PortfolioItem[] = [
     image: '/portofolio/cg.png',
     description:
       'Digital platform that showcases menu. The website makes it easy for customers to explore available food and drink options',
-    tech: 'Html, CSS',
+    tech: 'Next JS',
     client: 'kedai cahaya gemilang',
-    link: 'https://kedaicahayagemilang.vercel.app/',
+    link: 'https://www.kedai-cahayagemilang.my.id/',
   },
   {
     title: 'JUMEAUSCENT',
