@@ -87,7 +87,7 @@ export default function About() {
           >
             Hello, I&apos;m{" "}
             <span style={{ background: NB.pink, padding: "0 6px", border: `2px solid ${NB.black}` }}>Nul</span>{""}
-            — dev &amp; designer.
+            — Web Developer
           </h2>
 
           <p style={{ fontSize: "14px", lineHeight: 1.85, color: "#444", marginBottom: "14px" }}>
