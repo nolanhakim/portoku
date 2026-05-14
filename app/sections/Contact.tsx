@@ -81,7 +81,7 @@ export default function Contact() {
               <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "#555", marginBottom: "4px" }}>Links</p>
               {[
                 { label: "GitHub", href: "https://github.com/nolanhakim?tab=repositories" },
-                { label: "Email",  href: "mailto:nolantino29@gmail.com" },
+                { label: "Email", href: "mailto:nolantino29@gmail.com" },
               ].map(s => (
                 <a
                   key={s.label}
@@ -120,7 +120,7 @@ export default function Contact() {
             © {new Date().getFullYear()} Catraliya Nolan Hakim
           </span>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", color: "#444" }}>
-            Built with Next.js ✦ Neobrutalism UI
+            Built with Next.js ✦
           </span>
         </div>
       </footer>
