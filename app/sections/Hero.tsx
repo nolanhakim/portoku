@@ -189,8 +189,8 @@ export default function Hero() {
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-            <a href="mailto:nolantino29@gmail.com" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "12px", color: NB.black, textDecoration: "none", fontWeight: 500 }}>
-              nolantino29@gmail.com
+            <a href="mailto:nolanhakimm10@gmail.com" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "12px", color: NB.black, textDecoration: "none", fontWeight: 500 }}>
+              nolanhakimm10@gmail.com
             </a>
           </div>
         </div>

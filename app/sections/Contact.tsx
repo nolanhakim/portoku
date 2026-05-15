@@ -36,7 +36,7 @@ export default function Contact() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "420px" }}>
               {[
-                { icon: "@", label: "nolantino29@gmail.com", href: "mailto:nolantino29@gmail.com", bg: NB.teal },
+                { icon: "@", label: "nolanhakimm10@gmail.com", href: "mailto:nolanhakimm10@gmail.com", bg: NB.teal },
                 { icon: "gh", label: "github.com/nolanhakim", href: "https://github.com/nolanhakim?tab=repositories", bg: NB.pink },
               ].map(item => (
                 <ContactLink key={item.label} {...item} />
@@ -54,7 +54,7 @@ export default function Contact() {
             ✦ Available for freelance &amp; full-time work
           </span>
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", fontWeight: 700, color: NB.black }}>
-            nolantino29@gmail.com
+            nolanhakimm10@gmail.com
           </span>
         </div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
               <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "#555", marginBottom: "4px" }}>Links</p>
               {[
                 { label: "GitHub", href: "https://github.com/nolanhakim?tab=repositories" },
-                { label: "Email", href: "mailto:nolantino29@gmail.com" },
+                { label: "Email", href: "mailto:nolanhakimm10@gmail.com" },
               ].map(s => (
                 <a
                   key={s.label}

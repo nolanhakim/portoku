@@ -64,7 +64,7 @@ export default function Navbar() {
       </div>
 
       <a
-        href="mailto:nolantino29@gmail.com"
+        href="mailto:nolanhakimm10@gmail.com"
         className="nb-desktop-only"
         style={{
           alignItems: "center",
