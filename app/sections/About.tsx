@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const NB = {
   yellow: "#F5E642", pink: "#FF6B9D", teal: "#4ECDC4",
-  green: "#A8E063", orange: "#FF6B35", black: "#0A0A0A", bg: "#FFFEF0",
+  green: "#A8E063", orange: "#FF6B35", black: "#0A0A0A", bg: "#fffef0ff",
 };
 
 const INFO = [
