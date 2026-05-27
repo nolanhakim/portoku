@@ -2,6 +2,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 interface Project {
   num: string; title: string; shortDesc: string; fullDesc: string;
@@ -46,10 +47,12 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   const modalContent = (
     <div
       onClick={onClose}
+      className="animate-backdrop"
       style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(10,10,10,0.75)", padding: "16px" }}
     >
       <div
         onClick={e => e.stopPropagation()}
+        className="animate-modal-pop"
         style={{ position: "relative", width: "100%", maxWidth: "640px", background: NB.bg, border: `3px solid ${NB.black}`, boxShadow: `8px 8px 0px ${NB.black}`, maxHeight: "92vh", overflow: "hidden", display: "flex", flexDirection: "column" }}
       >
         <div style={{ height: "8px", background: accent, flexShrink: 0 }} />
@@ -112,20 +115,39 @@ export default function Portfolio() {
   const [modal, setModal] = useState<Project | null>(null);
   const openModal = useCallback((p: Project) => setModal(p), []);
   const closeModal = useCallback(() => setModal(null), []);
+  const { ref, hasRevealed } = useScrollReveal(0.02);
 
   return (
     <>
       {modal && <ProjectModal project={modal} onClose={closeModal} />}
-      <section id="portfolio" style={{ borderBottom: `3px solid ${NB.black}`, background: NB.bg }}>
+      <section id="portfolio" ref={ref} style={{ borderBottom: `3px solid ${NB.black}`, background: NB.bg }}>
         <div style={{ padding: `clamp(40px,7vw,80px) clamp(20px,5vw,64px) clamp(24px,4vw,40px)` }}>
-          <div className="nb-section-label">
+          <div
+            className="nb-section-label"
+            style={{
+              opacity: hasRevealed ? 1 : 0,
+              transform: hasRevealed ? "translateX(0)" : "translateX(-20px)",
+              transition: "opacity 0.5s ease 0ms, transform 0.5s ease 0ms",
+            }}
+          >
             Portfolio — Website
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: "10px", color: "#888", marginLeft: "auto" }}>{PROJECTS.length} projects</span>
+            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: "10px", color: "#888", marginLeft: "auto" }}> projects</span>
           </div>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style={{ borderTop: `3px solid ${NB.black}` }}>
           {PROJECTS.map((p, i) => (
-            <div key={p.num} style={{ borderRight: `2px solid ${NB.black}`, borderBottom: `2px solid ${NB.black}`, padding: "10px", background: NB.bg }}>
+            <div
+              key={p.num}
+              style={{
+                borderRight: `2px solid ${NB.black}`,
+                borderBottom: `2px solid ${NB.black}`,
+                padding: "10px",
+                background: NB.bg,
+                opacity: hasRevealed ? 1 : 0,
+                transform: hasRevealed ? "translateY(0)" : "translateY(28px)",
+                transition: `opacity 0.5s ease ${100 + i * 60}ms, transform 0.5s ease ${100 + i * 60}ms`,
+              }}
+            >
               <ProjectCard p={p} index={i} accent={CARD_COLORS[i]} onOpen={openModal} />
             </div>
           ))}
@@ -144,3 +166,4 @@ export default function Portfolio() {
     </>
   );
 }
+

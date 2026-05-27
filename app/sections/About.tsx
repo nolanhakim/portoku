@@ -1,6 +1,7 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
-
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const NB = {
   yellow: "#F5E642", pink: "#FF6B9D", teal: "#4ECDC4",
@@ -15,9 +16,13 @@ const INFO = [
 ];
 
 export default function About() {
+  const { ref, hasRevealed } = useScrollReveal(0.05);
+  const [imgTilt, setImgTilt] = useState(false);
+
   return (
     <section
       id="about"
+      ref={ref}
       style={{
         borderBottom: `3px solid ${NB.black}`,
         background: NB.bg,
@@ -25,22 +30,42 @@ export default function About() {
       }}
     >
       {/* Section label */}
-      <div className="nb-section-label" style={{ marginBottom: "clamp(28px,5vw,48px)" }}>
+      <div
+        className="nb-section-label"
+        style={{
+          marginBottom: "clamp(28px,5vw,48px)",
+          opacity: hasRevealed ? 1 : 0,
+          transform: hasRevealed ? "translateX(0)" : "translateX(-20px)",
+          transition: "opacity 0.5s ease 0ms, transform 0.5s ease 0ms",
+        }}
+      >
         About me
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: "clamp(32px,5vw,64px)", alignItems: "start" }}>
 
         {/* Left: photo */}
-        <div style={{ position: "relative", order: -1 }} className="lg:order-last">
+        <div
+          style={{
+            position: "relative",
+            order: -1,
+            transform: imgTilt ? "scale(1.02) rotate(1deg)" : "scale(1) rotate(0deg)",
+            transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s ease 100ms",
+            opacity: hasRevealed ? 1 : 0,
+          }}
+          className="lg:order-last"
+          onMouseEnter={() => setImgTilt(true)}
+          onMouseLeave={() => setImgTilt(false)}
+        >
           <div
             style={{
               position: "relative",
               border: `3px solid ${NB.black}`,
-              boxShadow: `6px 6px 0px ${NB.black}`,
+              boxShadow: imgTilt ? `9px 9px 0px ${NB.black}` : `6px 6px 0px ${NB.black}`,
               overflow: "hidden",
               height: "clamp(300px,55vw,480px)",
               background: "#eee",
+              transition: "box-shadow 0.4s ease",
             }}
           >
             <Image
@@ -57,7 +82,7 @@ export default function About() {
               position: "absolute",
               bottom: "-14px",
               left: "50%",
-              transform: "translateX(-50%) rotate(-2deg)",
+              transform: imgTilt ? "translateX(-50%) rotate(2deg) scale(1.05)" : "translateX(-50%) rotate(-2deg) scale(1)",
               background: NB.yellow,
               border: `2px solid ${NB.black}`,
               boxShadow: `3px 3px 0px ${NB.black}`,
@@ -67,6 +92,7 @@ export default function About() {
               fontSize: "13px",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
+              transition: "transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
             }}
           >
             Catraliya Nolan Hakim
@@ -74,7 +100,13 @@ export default function About() {
         </div>
 
         {/* Right: text */}
-        <div>
+        <div
+          style={{
+            opacity: hasRevealed ? 1 : 0,
+            transform: hasRevealed ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 0.6s ease 200ms, transform 0.6s ease 200ms",
+          }}
+        >
           <h2
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
@@ -103,7 +135,7 @@ export default function About() {
 
           {/* Info cards grid */}
           <div className="grid grid-cols-2" style={{ gap: "10px" }}>
-            {INFO.map((item) => (
+            {INFO.map((item, idx) => (
               <div
                 key={item.label}
                 style={{
@@ -111,6 +143,9 @@ export default function About() {
                   border: `2px solid ${NB.black}`,
                   boxShadow: `3px 3px 0px ${NB.black}`,
                   padding: "12px 16px",
+                  opacity: hasRevealed ? 1 : 0,
+                  transform: hasRevealed ? "translateY(0)" : "translateY(16px)",
+                  transition: `opacity 0.5s ease ${300 + idx * 80}ms, transform 0.5s ease ${300 + idx * 80}ms`,
                 }}
               >
                 <p style={{ fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "4px", color: NB.black }}>

@@ -5,9 +5,16 @@ const links = ["About", "Skills", "Portfolio", "Contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 24);
+    const fn = () => {
+      setScrolled(window.scrollY > 24);
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
+    };
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
@@ -32,6 +39,19 @@ export default function Navbar() {
         transition: "border-color 0.3s ease",
       }}
     >
+      {/* Scroll Progress Indicator */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-3px",
+          left: 0,
+          height: "3px",
+          background: "#FF6B9D",
+          width: `${scrollProgress}%`,
+          zIndex: 51,
+          transition: "width 0.1s ease-out",
+        }}
+      />
       {/* Logo — always visible */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

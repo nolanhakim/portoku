@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NB = {
   yellow: "#F5E642",
@@ -51,20 +51,94 @@ function NbBtn({
 }
 
 export default function Hero() {
-  // No animation delay — elements appear immediately
-  const fade = (_delay: number): React.CSSProperties => ({
-    opacity: 1,
-    transform: "none",
-  });
+  const [mounted, setMounted] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const mounted = true;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (typeof window === "undefined" || window.innerWidth < 768) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / 30;
+    const y = (e.clientY - rect.top - rect.height / 2) / 30;
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
+
+  // Staggered entrance animations
+  const fade = (delay: number): React.CSSProperties => ({
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+  });
 
   return (
     <section
       id="home"
-      style={{ paddingTop: "64px", borderBottom: `3px solid ${NB.black}`, background: NB.bg, overflow: "hidden" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        paddingTop: "64px",
+        borderBottom: `3px solid ${NB.black}`,
+        background: NB.bg,
+        overflow: "hidden",
+        position: "relative",
+      }}
     >
-      <div style={{ padding: "clamp(32px,6vw,64px) clamp(20px,5vw,64px)" }}>
+      {/* Decorative Interactive Shapes */}
+      <div
+        style={{
+          position: "absolute",
+          top: "12%",
+          right: "8%",
+          pointerEvents: "none",
+          transform: `translate(${mousePos.x * 1.5}px, ${mousePos.y * 1.5}px)`,
+          transition: "transform 0.2s cubic-bezier(0.1, 1, 0.1, 1)",
+          zIndex: 0,
+          opacity: mounted ? 1 : 0,
+        }}
+        className="nb-desktop-only animate-float-slow"
+      >
+        <div className="animate-slow-spin">
+          <svg viewBox="0 0 100 100" width="200" height="200">
+            <path
+              d="M50 0 L58 35 L90 20 L68 45 L100 50 L68 55 L90 80 L58 65 L50 100 L42 65 L10 80 L32 55 L0 50 L32 45 L10 20 L42 35 Z"
+              fill="#FF6B9D"
+              stroke="#0A0A0A"
+              strokeWidth="4"
+              strokeLinejoin="miter"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "22%",
+          right: "32%",
+          pointerEvents: "none",
+          transform: `translate(${mousePos.x * -0.8}px, ${mousePos.y * -0.8}px) rotate(45deg)`,
+          transition: "transform 0.25s cubic-bezier(0.1, 1, 0.1, 1)",
+          zIndex: 0,
+          opacity: mounted ? 1 : 0,
+        }}
+        className="nb-desktop-only"
+      >
+        <div className="animate-slow-spin" style={{ animationDuration: "12s" }}>
+          <svg viewBox="0 0 100 100" width="60" height="60">
+            <rect x="35" y="0" width="30" height="100" fill="#F5E642" stroke="#0A0A0A" strokeWidth="4" />
+            <rect x="0" y="35" width="100" height="30" fill="#F5E642" stroke="#0A0A0A" strokeWidth="4" />
+          </svg>
+        </div>
+      </div>
+
+      <div style={{ padding: "clamp(32px,6vw,64px) clamp(20px,5vw,64px)", position: "relative", zIndex: 1 }}>
 
         {/* Status badge */}
         <div
@@ -78,9 +152,7 @@ export default function Hero() {
             boxShadow: `3px 3px 0px ${NB.black}`,
             padding: "6px 16px",
             marginBottom: "clamp(28px,5vw,48px)",
-            transform: mounted ? "rotate(-1.5deg)" : "rotate(-1.5deg) translateY(28px)",
-            opacity: mounted ? 1 : 0,
-            transition: "opacity 0.5s ease 0ms, transform 0.5s ease 0ms",
+            transform: mounted ? "rotate(-1.5deg) translateY(0)" : "rotate(-1.5deg) translateY(24px)",
           }}
         >
           <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: NB.black, display: "block", flexShrink: 0 }} />
@@ -117,7 +189,7 @@ export default function Hero() {
               display: "inline-block",
               padding: "0 8px",
               marginTop: "4px",
-              transform: mounted ? "rotate(-1deg) translateY(0)" : "rotate(-1deg) translateY(28px)",
+              transform: mounted ? "rotate(-1deg) translateY(0)" : "rotate(-1deg) translateY(24px)",
             }}
           >
             interfaces
@@ -139,7 +211,7 @@ export default function Hero() {
         </div>
 
         {/* Sub & CTA */}
-        <div style={{ ...fade(360), display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div style={{ ...fade(320), display: "flex", flexDirection: "column", gap: "24px" }}>
           <p style={{ maxWidth: "480px", fontSize: "clamp(14px,2vw,16px)", lineHeight: 1.8, color: "#333" }}>
             I&apos;m <strong>Nolan</strong> — a fresh D3 graduate in Teknologi Informasi from Universitas Brawijaya, Malang.
             I build responsive web applications — from frontend to backend.
@@ -157,7 +229,7 @@ export default function Hero() {
         {/* Stats */}
         <div
           style={{
-            ...fade(480),
+            ...fade(400),
             marginTop: "clamp(32px,6vw,64px)",
             paddingTop: "clamp(24px,4vw,40px)",
             borderTop: `3px solid ${NB.black}`,
@@ -171,7 +243,7 @@ export default function Hero() {
               { val: "D3", lbl: "IT Graduate · UB", bg: NB.yellow },
               { val: "8", lbl: "Tech skills", bg: NB.teal },
               { val: "21", lbl: "Years old", bg: NB.pink },
-            ].map((s) => (
+            ].map((s, idx) => (
               <div
                 key={s.lbl}
                 style={{
@@ -180,6 +252,9 @@ export default function Hero() {
                   boxShadow: `3px 3px 0px ${NB.black}`,
                   padding: "12px 20px",
                   minWidth: "90px",
+                  transform: mounted ? "translateY(0)" : "translateY(24px)",
+                  opacity: mounted ? 1 : 0,
+                  transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${480 + idx * 80}ms, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${480 + idx * 80}ms`,
                 }}
               >
                 <p style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", lineHeight: 1, marginBottom: "4px" }}>{s.val}</p>

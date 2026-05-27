@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const NB = {
   yellow: "#F5E642", pink: "#FF6B9D", teal: "#4ECDC4",
@@ -29,15 +30,21 @@ const MARQUEE = [
 const MARQUEE_COLORS = [NB.black, NB.orange, NB.black, NB.pink, NB.black, NB.teal];
 
 export default function Skills() {
+  const { ref, hasRevealed } = useScrollReveal(0.05);
 
   return (
-    <section id="skills" style={{ borderBottom: `3px solid ${NB.black}`, background: NB.bg, overflow: "hidden" }}>
+    <section id="skills" ref={ref} style={{ borderBottom: `3px solid ${NB.black}`, background: NB.bg, overflow: "hidden" }}>
       <div style={{ padding: "clamp(40px,7vw,80px) clamp(20px,5vw,64px)" }}>
 
         {/* Label */}
         <div
           className="nb-section-label"
-          style={{ marginBottom: "clamp(28px,5vw,48px)" }}
+          style={{
+            marginBottom: "clamp(28px,5vw,48px)",
+            opacity: hasRevealed ? 1 : 0,
+            transform: hasRevealed ? "translateX(0)" : "translateX(-20px)",
+            transition: "opacity 0.5s ease 0ms, transform 0.5s ease 0ms",
+          }}
         >
           Tech stack &amp; tools
         </div>
@@ -50,11 +57,10 @@ export default function Skills() {
             gap: "12px",
           }}
         >
-          {SKILLS.map((s) => (
-            <SkillPill key={s.name} skill={s} />
+          {SKILLS.map((s, idx) => (
+            <SkillPill key={s.name} skill={s} index={idx} hasRevealed={hasRevealed} />
           ))}
         </div>
-
 
       </div>
 
@@ -86,8 +92,12 @@ export default function Skills() {
 
 function SkillPill({
   skill,
+  index,
+  hasRevealed,
 }: {
   skill: { name: string; level: string; color: string };
+  index: number;
+  hasRevealed: boolean;
 }) {
   const [hov, setHov] = useState(false);
   return (
@@ -100,11 +110,16 @@ function SkillPill({
         gap: "8px",
         background: hov ? skill.color : NB.bg,
         border: `2px solid ${NB.black}`,
-        boxShadow: hov ? `4px 4px 0px ${NB.black}` : `3px 3px 0px ${NB.black}`,
+        boxShadow: hov ? `5px 5px 0px ${NB.black}` : `3px 3px 0px ${NB.black}`,
         padding: "10px 18px",
-        transform: hov ? "translate(-2px,-2px)" : "translate(0,0)",
-        transition: "all 0.15s ease",
         cursor: "default",
+        opacity: hasRevealed ? 1 : 0,
+        transform: hasRevealed
+          ? (hov ? "translate(-2px,-2px)" : "translate(0,0)")
+          : "translateY(16px)",
+        transition: hov
+          ? "background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease"
+          : `opacity 0.4s ease ${80 + index * 40}ms, transform 0.4s ease ${80 + index * 40}ms, background 0.15s ease, box-shadow 0.15s ease`,
       }}
     >
       <span style={{ fontWeight: 700, fontSize: "14px", color: NB.black }}>{skill.name}</span>

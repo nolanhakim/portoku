@@ -1,18 +1,20 @@
 "use client";
 import { useState } from "react";
-
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const NB = {
   yellow: "#F5E642", pink: "#FF6B9D", teal: "#4ECDC4",
   green: "#A8E063", orange: "#FF6B35", black: "#0A0A0A", bg: "#FFFEF0",
 };
 
-
 export default function Contact() {
+  const { ref, hasRevealed } = useScrollReveal(0.05);
+
   return (
     <>
       <section
         id="contact"
+        ref={ref}
         style={{
           borderBottom: `3px solid ${NB.black}`,
           background: NB.bg,
@@ -21,15 +23,47 @@ export default function Contact() {
       >
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <div>
-            <div className="nb-section-label" style={{ marginBottom: "clamp(24px,4vw,40px)" }}>Contact</div>
+            <div
+              className="nb-section-label"
+              style={{
+                marginBottom: "clamp(24px,4vw,40px)",
+                opacity: hasRevealed ? 1 : 0,
+                transform: hasRevealed ? "translateX(0)" : "translateX(-20px)",
+                transition: "opacity 0.5s ease 0ms, transform 0.5s ease 0ms",
+              }}
+            >
+              Contact
+            </div>
 
-            <h2 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: "clamp(40px,8vw,72px)", lineHeight: 1, letterSpacing: "0.02em", marginBottom: "20px", color: NB.black }}>
+            <h2
+              style={{
+                fontFamily: "'Bebas Neue',sans-serif",
+                fontSize: "clamp(40px,8vw,72px)",
+                lineHeight: 1,
+                letterSpacing: "0.02em",
+                marginBottom: "20px",
+                color: NB.black,
+                opacity: hasRevealed ? 1 : 0,
+                transform: hasRevealed ? "translateY(0)" : "translateY(24px)",
+                transition: "opacity 0.6s ease 100ms, transform 0.6s ease 100ms",
+              }}
+            >
               Let&apos;s create{" "}
               <span style={{ background: NB.yellow, padding: "0 8px", border: `2px solid ${NB.black}` }}>something</span>
               {" "}great.
             </h2>
 
-            <p style={{ fontSize: "14px", lineHeight: 1.85, color: "#444", marginBottom: "32px" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                lineHeight: 1.85,
+                color: "#444",
+                marginBottom: "32px",
+                opacity: hasRevealed ? 1 : 0,
+                transform: hasRevealed ? "translateY(0)" : "translateY(24px)",
+                transition: "opacity 0.6s ease 200ms, transform 0.6s ease 200ms",
+              }}
+            >
               Have a project in mind, want to collaborate, or just want to say hello?
               I&apos;d love to hear from you.
             </p>
@@ -38,8 +72,8 @@ export default function Contact() {
               {[
                 { icon: "@", label: "nolanhakimm10@gmail.com", href: "mailto:nolanhakimm10@gmail.com", bg: NB.teal },
                 { icon: "gh", label: "github.com/nolanhakim", href: "https://github.com/nolanhakim?tab=repositories", bg: NB.pink },
-              ].map(item => (
-                <ContactLink key={item.label} {...item} />
+              ].map((item, idx) => (
+                <ContactLink key={item.label} {...item} index={idx} hasRevealed={hasRevealed} />
               ))}
             </div>
           </div>
@@ -128,7 +162,21 @@ export default function Contact() {
   );
 }
 
-function ContactLink({ icon, label, href, bg }: { icon: string; label: string; href: string; bg: string }) {
+function ContactLink({
+  icon,
+  label,
+  href,
+  bg,
+  index,
+  hasRevealed,
+}: {
+  icon: string;
+  label: string;
+  href: string;
+  bg: string;
+  index: number;
+  hasRevealed: boolean;
+}) {
   const [hov, setHov] = useState(false);
   return (
     <a
@@ -137,6 +185,7 @@ function ContactLink({ icon, label, href, bg }: { icon: string; label: string; h
       rel="noopener noreferrer"
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
+      className="hover-shake"
       style={{
         display: "flex",
         alignItems: "center",
@@ -145,9 +194,14 @@ function ContactLink({ icon, label, href, bg }: { icon: string; label: string; h
         background: hov ? bg : "#fff",
         border: `2px solid ${NB.black}`,
         boxShadow: hov ? `4px 4px 0px ${NB.black}` : `3px 3px 0px ${NB.black}`,
-        transform: hov ? "translate(-2px,-2px)" : "translate(0,0)",
         padding: "10px 16px",
-        transition: "all 0.15s ease",
+        opacity: hasRevealed ? 1 : 0,
+        transform: hasRevealed
+          ? (hov ? "translate(-2px,-2px)" : "translate(0,0)")
+          : "translateY(16px)",
+        transition: hov
+          ? "background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease"
+          : `opacity 0.5s ease ${200 + index * 80}ms, transform 0.5s ease ${200 + index * 80}ms, background 0.15s ease, box-shadow 0.15s ease`,
       }}
     >
       <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: "12px", fontWeight: 800, width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", border: `2px solid ${NB.black}`, background: hov ? NB.black : bg, color: hov ? "#fff" : NB.black, flexShrink: 0, transition: "all 0.15s ease" }}>
