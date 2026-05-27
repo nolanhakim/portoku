@@ -25,8 +25,6 @@ const education = [
         institution: "Universitas Brawijaya",
         sub: "Fakultas Vokasi",
         period: "2023 – 2026",
-        highlight: { label: "IPK", value: "3,89 / 4,00" },
-        highlightColor: NB.green,
         accentColor: NB.teal,
         numberLabel: "01",
         courses: COURSES,
@@ -37,8 +35,6 @@ const education = [
         institution: "SMK Negeri 1 Sukoharjo",
         sub: null,
         period: "2020 – 2023",
-        highlight: { label: "Nilai Rata-Rata", value: "87,05" },
-        highlightColor: NB.yellow,
         accentColor: NB.pink,
         numberLabel: "02",
         courses: null,
@@ -59,7 +55,6 @@ export default function Education() {
                 padding: "clamp(40px,7vw,80px) clamp(20px,5vw,64px)",
             }}
         >
-            {/* Section label */}
             <div
                 className="nb-section-label"
                 style={{
@@ -188,40 +183,19 @@ function EducationCard({
                         )}
                     </div>
 
-                    {/* Period + highlight */}
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "8px" }}>
-                        {/* Period pill */}
-                        <div
-                            style={{
-                                border: `2px solid ${NB.black}`,
-                                padding: "6px 14px",
-                                fontWeight: 800,
-                                fontSize: "13px",
-                                letterSpacing: "0.05em",
-                                whiteSpace: "nowrap",
-                                background: NB.bg,
-                            }}
-                        >
-                            {edu.period}
-                        </div>
-
-                        {/* Highlight card */}
-                        <div
-                            style={{
-                                background: edu.highlightColor,
-                                border: `2px solid ${NB.black}`,
-                                boxShadow: `3px 3px 0px ${NB.black}`,
-                                padding: "8px 16px",
-                                textAlign: "right",
-                            }}
-                        >
-                            <p style={{ fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "2px" }}>
-                                {edu.highlight.label}
-                            </p>
-                            <p style={{ fontSize: "20px", fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em", lineHeight: 1 }}>
-                                {edu.highlight.value}
-                            </p>
-                        </div>
+                    {/* Period */}
+                    <div
+                        style={{
+                            border: `2px solid ${NB.black}`,
+                            padding: "6px 14px",
+                            fontWeight: 800,
+                            fontSize: "13px",
+                            letterSpacing: "0.05em",
+                            whiteSpace: "nowrap",
+                            background: NB.bg,
+                        }}
+                    >
+                        {edu.period}
                     </div>
                 </div>
 
@@ -268,4 +242,4 @@ function EducationCard({
             </div>
         </div>
     );
-}
+}
