@@ -10,7 +10,7 @@ const NB = {
 const COURSES = [
     "Pemrograman Web", "Rekayasa Perangkat Lunak", "Basis Data",
     "Desain UI/UX", "Pemrograman Framework (Laravel)", "Cloud Computing",
-    "Kecerdasan Buatan", "Keamanan Komputer", "Manajemen Proyek",
+    "Kecerdasan Buatan", "Keamanan Komputer", "Manajemen Proyek", "Jaringan Komputer",
 ];
 
 const COURSE_COLORS = [

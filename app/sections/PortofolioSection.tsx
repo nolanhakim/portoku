@@ -15,7 +15,7 @@ const NB = {
   black: "#0A0A0A", bg: "#FFFEF0",
 };
 const TAG_COLORS = [NB.yellow, NB.pink, NB.teal, NB.green, NB.orange, NB.purple];
-const CARD_COLORS = [NB.yellow, NB.pink, NB.teal, NB.green, NB.orange, NB.purple, NB.yellow, NB.pink];
+const CARD_COLORS = [NB.yellow, NB.pink, NB.teal, NB.green, NB.orange, NB.purple, NB.yellow, NB.pink, NB.teal];
 
 const PROJECTS: Project[] = [
   { num: "01", year: "2025", title: "Web Top-Up", shortDesc: "Platform top-up game berbasis web.", fullDesc: "Website top-up game dengan katalog produk, sistem pembayaran, dan manajemen transaksi. Dibangun dengan tampilan yang cepat dan antarmuka yang ramah pengguna.", tags: ["Laravel", "TailwindCSS", "JavaScript", "PHP"], href: "#", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/git.png" },
@@ -23,14 +23,15 @@ const PROJECTS: Project[] = [
   { num: "03", year: "2024", title: "Web Cuaca", shortDesc: "Aplikasi prakiraan cuaca real-time.", fullDesc: "Web aplikasi cuaca yang mengambil data real-time dari OpenWeatherMap API. Menampilkan prakiraan harian, kondisi cuaca saat ini, dan visualisasi data yang interaktif.", tags: ["JavaScript", "REST API", "CSS"], href: "https://web-cuaca-ld9d.vercel.app/", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/cuaca.png" },
   { num: "04", year: "2024", title: "Web Creanomic", shortDesc: "Platform kreatif & ekonomi digital.", fullDesc: "Website platform Creanomic adalah website suatu acara program kerja yang menggabungkan pameran dan festival kreatif serta sarana untuk mengembangkan ekonomi digital.", tags: ["Next.js", "Laravel", "MySQL"], href: "https://creanomic.com/", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/crea.png" },
   { num: "05", year: "2024", title: "Web Cahaya Gemilang", shortDesc: "Company profile distributor bahan bangunan.", fullDesc: "Website company profile untuk CV Cahaya Gemilang, distributor bahan bangunan. Menampilkan katalog produk, profil perusahaan, dan formulir pemesanan.", tags: ["HTML", "CSS", "JavaScript", "PHP"], href: "https://www.kedai-cahayagemilang.my.id/", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/cg1.png" },
-  { num: "06", year: "2024", title: "Web Photobooth", shortDesc: "Aplikasi photobooth digital berbasis web.", fullDesc: "Web app photobooth yang memungkinkan pengguna mengambil foto langsung dari browser, memilih frame, dan mengunduh hasilnya. Dibangun dengan MediaDevices API.", tags: ["JavaScript", "Canvas API", "CSS"], href: "#", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/photo.png" },
-  { num: "07", year: "2025", title: "Web Portofolio", shortDesc: "Personal portfolio — neobrutalism aesthetic.", fullDesc: "Website portofolio pribadi yang dibangun dengan Next.js 15. Menampilkan design system neobrutalism, animasi halus berbasis Intersection Observer, dan layout yang sepenuhnya responsif.", tags: ["Next.js", "TypeScript", "CSS"], href: "#", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/git.png" },
+  { num: "06", year: "2024", title: "Web Photobooth", shortDesc: "Aplikasi photobooth digital berbasis web.", fullDesc: "Web app photobooth yang memungkinkan pengguna mengambil foto langsung dari browser, memilih frame, dan mengunduh hasilnya. Dibangun dengan MediaDevices API.", tags: ["JavaScript", "Canvas API", "CSS"], href: "https://photobooth-vokasi.vercel.app/", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/photo.png" },
+  { num: "07", year: "2025", title: "Web Portofolio", shortDesc: "Personal portfolio — neobrutalism aesthetic.", fullDesc: "Website portofolio pribadi yang dibangun dengan Next.js 15. Menampilkan design system neobrutalism, animasi halus berbasis Intersection Observer, dan layout yang sepenuhnya responsif.", tags: ["Next.js", "TypeScript", "CSS"], href: "https://nolanhakim.my.id/", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/porto.png" },
   { num: "08", year: "2025", title: "Web PSIK", shortDesc: "Project tugas akhir berbasis web.", fullDesc: "Website yang dikembangkan sebagai tugas akhir. Mencakup fitur manajemen data, autentikasi pengguna, dan dashboard administrasi dengan teknologi full-stack modern.", tags: ["Next.js", "Laravel", "MySQL", "Tailwind"], href: "#", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/git.png" },
+  { num: "09", year: "2025", title: "Web Saerah Meubel", shortDesc: "Website katalog & profil usaha Saerah Meubel.", fullDesc: "Website katalog produk online dan profil bisnis untuk Saerah Meubel, produsen furniture kayu custom berkualitas tinggi. Menampilkan koleksi furnitur secara dinamis, detail spesifikasi bahan, dan integrasi pemesanan WhatsApp.", tags: ["HTML", "CSS", "JavaScript"], href: "https://saerahmeubel.vercel.app/", github: "https://github.com/nolanhakim?tab=repositories", image: "/img/saerah.png" },
 ];
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const idx = PROJECTS.findIndex(p => p.num === project.num);
-  const accent = CARD_COLORS[idx] ?? NB.yellow;
+  const accent = CARD_COLORS[idx % CARD_COLORS.length] ?? NB.yellow;
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -148,7 +149,7 @@ export default function Portfolio() {
                 transition: `opacity 0.5s ease ${100 + i * 60}ms, transform 0.5s ease ${100 + i * 60}ms`,
               }}
             >
-              <ProjectCard p={p} index={i} accent={CARD_COLORS[i]} onOpen={openModal} />
+              <ProjectCard p={p} index={i} accent={CARD_COLORS[i % CARD_COLORS.length]} onOpen={openModal} />
             </div>
           ))}
         </div>

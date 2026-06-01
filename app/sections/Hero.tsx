@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import HeroCanvas from "../components/HeroCanvas";
 
 const NB = {
   yellow: "#F5E642",
@@ -90,52 +91,22 @@ export default function Hero() {
         position: "relative",
       }}
     >
-      {/* Decorative Interactive Shapes */}
+      {/* Decorative Interactive 3D Shapes */}
       <div
-        style={{
-          position: "absolute",
-          top: "12%",
-          right: "8%",
-          pointerEvents: "none",
-          transform: `translate(${mousePos.x * 1.5}px, ${mousePos.y * 1.5}px)`,
-          transition: "transform 0.2s cubic-bezier(0.1, 1, 0.1, 1)",
-          zIndex: 0,
-          opacity: mounted ? 1 : 0,
-        }}
-        className="nb-desktop-only animate-float-slow"
-      >
-        <div className="animate-slow-spin">
-          <svg viewBox="0 0 100 100" width="200" height="200">
-            <path
-              d="M50 0 L58 35 L90 20 L68 45 L100 50 L68 55 L90 80 L58 65 L50 100 L42 65 L10 80 L32 55 L0 50 L32 45 L10 20 L42 35 Z"
-              fill="#FF6B9D"
-              stroke="#0A0A0A"
-              strokeWidth="4"
-              strokeLinejoin="miter"
-            />
-          </svg>
-        </div>
-      </div>
-
-      <div
-        style={{
-          position: "absolute",
-          bottom: "22%",
-          right: "32%",
-          pointerEvents: "none",
-          transform: `translate(${mousePos.x * -0.8}px, ${mousePos.y * -0.8}px) rotate(45deg)`,
-          transition: "transform 0.25s cubic-bezier(0.1, 1, 0.1, 1)",
-          zIndex: 0,
-          opacity: mounted ? 1 : 0,
-        }}
         className="nb-desktop-only"
+        style={{
+          position: "absolute",
+          top: "10%",
+          right: "5%",
+          width: "480px",
+          height: "480px",
+          pointerEvents: "none",
+          zIndex: 0,
+          opacity: mounted ? 1 : 0,
+          transition: "opacity 0.6s ease",
+        }}
       >
-        <div className="animate-slow-spin" style={{ animationDuration: "12s" }}>
-          <svg viewBox="0 0 100 100" width="60" height="60">
-            <rect x="35" y="0" width="30" height="100" fill="#F5E642" stroke="#0A0A0A" strokeWidth="4" />
-            <rect x="0" y="35" width="100" height="30" fill="#F5E642" stroke="#0A0A0A" strokeWidth="4" />
-          </svg>
-        </div>
+        <HeroCanvas />
       </div>
 
       <div style={{ padding: "clamp(32px,6vw,64px) clamp(20px,5vw,64px)", position: "relative", zIndex: 1 }}>
